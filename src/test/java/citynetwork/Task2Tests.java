@@ -31,37 +31,37 @@ public class Task2Tests {
 
     private static Stream<Arguments> verifyCityNetworkProvider() {
         return Stream.of(
-                Arguments.of(
+            Arguments.of(
+                buildArbitraryNetwork(
+                    "VANCOUVER", "VAN",
+                    "TORONTO", "TOR",
+                    "PARIS", "PAR"),
+                true
+            ),
+            Arguments.of(
                     buildArbitraryNetwork(
                         "VANCOUVER", "VAN",
-                        "TORONTO", "TOR",
-                        "PARIS", "PAR"),
-                    true
-                ),
-                Arguments.of(
-                        buildArbitraryNetwork(
-                            "VANCOUVER", "VAN",
-                            "NEW YORK", "NYR",
-                            "NEW DELHI", "DEL"
-                        ),
-                    true
-                ),
-                Arguments.of(
-                    buildArbitraryNetwork(
-                        "FRANKFURT", "FRA",
-                        "ZURICH", "ZRH",
-                        "LONDON HEATHROW", "LHR"
+                        "NEW YORK", "NYR",
+                        "NEW DELHI", "DEL"
                     ),
-                    true
+                true
+            ),
+            Arguments.of(
+                buildArbitraryNetwork(
+                    "FRANKFURT", "FRA",
+                    "ZURICH", "ZRH",
+                    "LONDON HEATHROW", "LHR"
                 ),
-                Arguments.of(
-                    buildArbitraryNetwork(
-                        "FRANKFURT", "FRA",
-                        "ZURICH", "ZRH",
-                        "LONDON", "LHR"
-                    ),
-                    false
+                true
+            ),
+            Arguments.of(
+                buildArbitraryNetwork(
+                    "FRANKFURT", "FRA",
+                    "ZURICH", "ZRH",
+                    "LONDON", "LHR"
                 ),
+                false
+            ),
             Arguments.of(
                 buildArbitraryNetwork(
                     "JERUSALEM", "JER",
