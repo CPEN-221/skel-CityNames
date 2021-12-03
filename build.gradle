@@ -1,0 +1,44 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group 'ca.ubc.ece.cpen221'
+version 'V1'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    junitJupiterVersion = "5.5.2"
+    junit4Version = "4.1.2"
+}
+
+dependencies {
+
+    implementation "org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}"
+
+    testImplementation(
+            // Uncomment to use junit4
+            "junit:junit:${junit4Version}",
+            "org.junit.jupiter:junit-jupiter-migrationsupport:${junitJupiterVersion}",
+
+            "org.junit.jupiter:junit-jupiter-params:${junitJupiterVersion}"
+    )
+
+    testRuntimeOnly(
+            // Uncomment to use junit4
+            "org.junit.vintage:junit-vintage-engine:${junitJupiterVersion}",
+
+            "org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}"
+    )
+
+    test {
+        useJUnitPlatform()
+    }
+
+}
+//dependencies {
+//    testImplementation  group: 'junit', name: 'junit', version: '4.12'
+//}
