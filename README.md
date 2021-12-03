@@ -9,7 +9,7 @@ For the purposes of this activity, we define a valid TLA for the name of a city 
 3. the letters in `t` appear in `s` in the same order (although not necesssarily consecutive);
 4. a letter in `s` can be used at most once in `t`.
 
-**Examples**: If the city name is `VANCOUVER` then `VAN`, `VAC`, `VAR`, `ANC`, and `OUR` are all potential TLAs. On the other hand, `CAN` is not a valid TLA because `C` does not appear before an `A` and an `N` in `VANCOUVER`. `CVA` is not valid either: `C` appears before a `V` but not before an `A`. Similarly, `YVR` is not a valid TLA for `VANCOUVER` because there is no `Y` in `VANCOUVER`. It is possible that a city name has a space (`" "`) in it (such as in `NEW DELHI`) but the corresponding TLA will not contain a space (TLAs only contain alphabets in upper-case form).
+**Examples**: If the city name is `VANCOUVER` then `VAN`, `VAC`, `VAR`, `ANC`, and `OUR` are all potential TLAs. On the other hand, `CAN` is not a valid TLA because `C` does not appear before an `A` and an `N` in `VANCOUVER`. `CVA` is not valid either: `C` appears before a `V` but not before an `A`. `VVA` is not valid because there is only one `V` before the `A` in `VANCOUVER`, but `VVR` is a valid TLA for `VANCOUVER` since `VANCOUVER` does have two `V`s. Similarly, `YVR` is not a valid TLA for `VANCOUVER` because there is no `Y` in `VANCOUVER`. It is possible that a city name has a space (`" "`) in it (such as in `NEW DELHI`) but the corresponding TLA will not contain a space (TLAs only contain alphabets in upper-case form).
 
 ### Task 1 (1 point)
 
