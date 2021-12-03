@@ -24,7 +24,7 @@ public class CityTLA {
 
 Implement a method `boolean checkRep()` for this type that verifies `_cityCode` is a valid TLA for `_cityName`. (In effect, we are checking the representation invariant. Normally this is a `private` method but for the purposes of this activity, we will make it a `public ` method.)
 
-### Task 2 (1 point)
+### Task 2 (1.5 points)
 
 The challenge with TLAs as codes for city or town names is that we would like to avoid ambiguities. Given a list of cities, we would naturally like each city to have a **unique** code. But we go even further and will require that the code chosen for a city is such that that code **cannot be the code for any other city** given a list of city (or town) names.
 
