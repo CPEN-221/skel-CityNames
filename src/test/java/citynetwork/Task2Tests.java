@@ -61,7 +61,15 @@ public class Task2Tests {
                         "LONDON", "LHR"
                     ),
                     false
-                )
+                ),
+            Arguments.of(
+                buildArbitraryNetwork(
+                    "JERUSALEM", "JER",
+                    "JERICHO", "JEC",
+                    "SALEM", "SEM"
+                ),
+                false
+            )
         );
     }
 }
