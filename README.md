@@ -9,7 +9,7 @@ For the purposes of this activity, we define a valid TLA for the name of a city 
 3. the letters in `t` appear in `s` in the same order (although not necesssarily consecutive);
 4. a letter in `s` can be used at most once in `t`.
 
-**Examples**: If the city name is `VANCOUVER` then `VAN`, `VAC`, `VAR`, `ANC`, and `OUR` are all potential TLAs. On the other hand, `CAN` is not a valid TLA because `C` does not appear before an `A` and an `N` in `VANCOUVER`. Similarly, `YVR` is not a valid TLA for `VANCOUVER` because there is no `Y` in `VANCOUVER`. It is possible that a city name has a space (`" "`) in it (such as in `NEW DELHI`) but the corresponding TLA will not contain a space (TLAs only contain alphabets in upper-case form).
+**Examples**: If the city name is `VANCOUVER` then `VAN`, `VAC`, `VAR`, `ANC`, and `OUR` are all potential TLAs. On the other hand, `CAN` is not a valid TLA because `C` does not appear before an `A` and an `N` in `VANCOUVER`. `CVA` is not valid either: `C` appears before a `V` but not before an `A`. Similarly, `YVR` is not a valid TLA for `VANCOUVER` because there is no `Y` in `VANCOUVER`. It is possible that a city name has a space (`" "`) in it (such as in `NEW DELHI`) but the corresponding TLA will not contain a space (TLAs only contain alphabets in upper-case form).
 
 ### Task 1 (1 point)
 
@@ -60,7 +60,7 @@ In this task, given a `List` of `String`s where each `String` represents the nam
 + Passing the provided tests is the minimum requirement. Use the tests to identify cases that need to be handled. Passing the provided tests is *not sufficient* to infer that your implementation is complete and that you will get full credit. Additional tests will be used to evaluate your work. The provided tests are to guide you.
 + You can implement additional helper methods if you need to but you should keep these methods `private` to the appropriate classes.
 + You do not need to implement new classes.
-+ You can use additional **standard** Java libraries by importing them.
++ You can use additional **standard** Java libraries (`java.util.*`) by importing them.
 + Do not throw new exceptions unless the specification for the method permits exceptions.
 
 ## Honour Code

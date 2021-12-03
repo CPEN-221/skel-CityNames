@@ -53,8 +53,8 @@ public class Task3Tests {
                 1
             ),
             Arguments.of(
-                List.of("LONDON", "LONDONDERRY", "LONDON HEATHROW", "BAGSHOT ROW", "HOBBITON", "THE TWO RIVERS", "EMONDS FIELD"),
-                6
+                List.of("LONDON", "LONDONDERRY", "LONDON HEATHROW", "BAGSHOT ROW", "HOBBITON", "THE TWO RIVERS", "EMONDS FIELD", "ARRAKIS", "PLANET ARRAKIS"),
+                7
             )
         );
     }
