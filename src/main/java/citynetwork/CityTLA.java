@@ -10,7 +10,6 @@ public class CityTLA {
     }
 
     public boolean checkRep() {
-        // TODO: Implement this method for Task 1
-        return false;
+        return Utils.isValidCode(_cityName, _cityCode);
     }
 }

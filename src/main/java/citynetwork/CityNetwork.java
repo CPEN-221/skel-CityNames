@@ -7,8 +7,19 @@ public class CityNetwork {
     public final List<CityTLA> _cities = new ArrayList<>();
 
     public boolean checkRep() {
-        // TODO: Implement this method for Task 2
-        return false;
+        for (int i = 0; i < _cities.size(); i++) {
+            CityTLA city1 = _cities.get(i);
+            if (city1.checkRep() == false) {
+                return false;
+            }
+            for (int j = i+1; j < _cities.size(); j++) {
+                CityTLA city2 = _cities.get(j);
+                if (Utils.isValidCode(city2._cityName, city1._cityCode)) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     /**

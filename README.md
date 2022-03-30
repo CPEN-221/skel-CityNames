@@ -11,7 +11,7 @@ For the purposes of this activity, we define a valid TLA for the name of a city 
 
 **Examples**: If the city name is `VANCOUVER` then `VAN`, `VAC`, `VAR`, `ANC`, and `OUR` are all potential TLAs. On the other hand, `CAN` is not a valid TLA because `C` does not appear before an `A` and an `N` in `VANCOUVER`. `CVA` is not valid either: `C` appears before a `V` but not before an `A`. `VVA` is not valid because there is only one `V` before the `A` in `VANCOUVER`, but `VVR` is a valid TLA for `VANCOUVER` since `VANCOUVER` does have two `V`s. Similarly, `YVR` is not a valid TLA for `VANCOUVER` because there is no `Y` in `VANCOUVER`. It is possible that a city name has a space (`" "`) in it (such as in `NEW DELHI`) but the corresponding TLA will not contain a space (TLAs only contain alphabets in upper-case form).
 
-### Task 1 (1 point)
+### Task 1
 
 Let us define the type `CityTLA` as follows:
 
@@ -24,7 +24,7 @@ public class CityTLA {
 
 Implement a method `boolean checkRep()` for this type that verifies `_cityCode` is a valid TLA for `_cityName`. (In effect, we are checking the representation invariant. Normally this is a `private` method but for the purposes of this activity, we will make it a `public ` method.)
 
-### Task 2 (1.5 points)
+### Task 2
 
 The challenge with TLAs as codes for city or town names is that we would like to avoid ambiguities. Given a list of cities, we would naturally like each city to have a **unique** code. But we go even further and will require that the code chosen for a city is such that that code **cannot be the code for any other city** given a list of city (or town) names.
 
@@ -43,7 +43,7 @@ A valid `CityNetwork` contains at least one city, and if it contains more than o
 1. If the cities in a `CityNetwork` are `VANCOUVER`, `TORONTO` and `PARIS` then the codes `VAN`, `TOR` and `PAR`, respectively, are valid and the code for one city cannot be mistaken as the code for another city.
 2. If the cities are `NEW YORK`, `NEW DELHI` and `NEW AMSTERDAM` then the codes `YOR`, `DEL` and `AMS`, respectively, are valid but the codes `NEW`, `DEL` and `AMS` (respectively) are not because `NEW` is not ambiguity-free.
 
-### Task 3 (0.5 points)
+### Task 3
 
 In this task, given a `List` of `String`s where each `String` represents the name of a city or town, you should return a `CityNetwork` instance after computing valid codes for each city or town. The codes should satisfy the rules for a `CityNetwork` so they must be ambiguity-free. In the case that it is not possible to produce a valid `CityNetwork` instance for all provided city names, return a network with the maximum number of cities from the given the `List` for which ambiguity-free TLAs are possible.
 

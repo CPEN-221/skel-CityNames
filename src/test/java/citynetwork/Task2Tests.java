@@ -5,10 +5,12 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.time.Duration;
 import java.util.Set;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTimeoutPreemptively;
 
 @Timeout(20)
 public class Task2Tests {
@@ -16,7 +18,9 @@ public class Task2Tests {
     @ParameterizedTest
     @MethodSource("verifyCityNetworkProvider")
     public void test_verifyCityNetwork(CityNetwork citynet, boolean expResult) {
-        assertEquals(expResult, citynet.checkRep());
+        assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
+            assertEquals(expResult, citynet.checkRep());
+        });
     }
 
     private static CityNetwork buildArbitraryNetwork(String... strings) {
@@ -67,6 +71,49 @@ public class Task2Tests {
                     "JERUSALEM", "JER",
                     "JERICHO", "JEC",
                     "SALEM", "SEM"
+                ),
+                false
+            ),
+            Arguments.of(
+                buildArbitraryNetwork(
+                    "JERUSALEM", "JEU",
+                    "JERICHO", "JEC",
+                    "SALOME", "LME"
+                ),
+                true
+            ),
+            Arguments.of(
+                buildArbitraryNetwork(
+                    "NEW DELHI", "DEL",
+                    "NEW YORK", "YOR",
+                    "NEWARK", "EWA",
+                    "NEWTON", "EWO"
+                ),
+                false
+            ),
+            Arguments.of(
+                buildArbitraryNetwork(
+                    "NEW DELHI", "DHI",
+                    "NEW YORK", "YOR",
+                    "NEWARK", "EWA",
+                    "NEWTON", "EWT",
+                    "RENTON", "RNT",
+                    "DELTA", "LTA",
+                    "DETROIT", "ROI",
+                    "HANGZHOU", "HGZ",
+                    "GUANGZHOU", "GGZ"
+                ),
+                true
+            ),
+            Arguments.of(
+                buildArbitraryNetwork(
+                    "NEW DELHI", "DHI",
+                    "NEW YORK", "YOR",
+                    "NEWARK", "EWA",
+                    "NEWTON", "EWT",
+                    "RENTON", "RNT",
+                    "DELTA", "DEL",
+                    "DETROIT", "DET"
                 ),
                 false
             )

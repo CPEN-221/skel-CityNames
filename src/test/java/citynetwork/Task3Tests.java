@@ -5,6 +5,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Stream;
@@ -17,9 +18,11 @@ public class Task3Tests {
     @ParameterizedTest
     @MethodSource("buildCityNetProvider")
     public void test_buildCityNetwork(List<String> cityNames, int numCities) {
-        CityNetwork cityNetwork = CityNetwork.buildNetwork(cityNames);
-        assertTrue(cityNetwork.checkRep());
-        assertEquals(numCities, cityNetwork._cities.size());
+        assertTimeoutPreemptively(Duration.ofSeconds(20), () -> {
+            CityNetwork cityNetwork = CityNetwork.buildNetwork(cityNames);
+            assertTrue(cityNetwork.checkRep());
+            assertEquals(numCities, cityNetwork._cities.size());
+        });
     }
 
     private static Stream<Arguments> buildCityNetProvider() {
@@ -55,6 +58,14 @@ public class Task3Tests {
             Arguments.of(
                 List.of("LONDON", "LONDONDERRY", "LONDON HEATHROW", "BAGSHOT ROW", "HOBBITON", "THE TWO RIVERS", "EMONDS FIELD", "ARRAKIS", "PLANET ARRAKIS"),
                 7
+            ),
+            Arguments.of(
+                List.of("NEW DELHI", "NEW YORK", "NEWARK", "NEWTON", "RENTON", "DELTA", "DETROIT", "HANGZHOU", "GUANGZHOU"),
+                9
+            ),
+            Arguments.of(
+                List.of("NEW DELHI", "NEW YORK", "NEWARK", "NEWTON", "RENTON", "DELTA", "DETROIT", "HANGZHOU", "GUANGZHOU", "NEW ARK", "NEWTON DELTA"),
+                9
             )
         );
     }
